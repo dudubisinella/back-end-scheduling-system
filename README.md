@@ -96,4 +96,85 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-# back-end-scheduling-system
+
+# 🗓️ Sistema de Agendamentos
+
+Este é um sistema de agendamentos desenvolvido com **NestJS** (backend) e **Prisma** como ORM.
+
+## 🚀 Tecnologias
+
+- [NestJS](https://nestjs.com/) - Framework Node.js
+- [Prisma ORM](https://www.prisma.io/) - Gerenciamento do banco de dados
+- [PostgreSQL](https://www.postgresql.org/) - Banco de dados utilizado
+
+---
+
+## 🔧 Configuração do Projeto
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd backend
+```
+
+### 2️⃣ Instalar as dependências
+
+```bash
+npm install
+```
+
+### 3️⃣ Configurar o banco de dados
+
+Crie um arquivo `.env` na raiz do projeto e configure a conexão com o banco de dados:
+
+```
+DATABASE_URL="postgresql://user:password@localhost:5432/agendamentos"
+```
+
+**Substitua `user`, `password` e `localhost:5432` pelos seus dados reais.**
+
+### 4️⃣ Configurar o Prisma
+
+Rodar a inicialização do Prisma e gerar as tabelas:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+Gerar o cliente do Prisma:
+
+```bash
+npx prisma generate
+```
+
+Opcional: Para visualizar o banco de dados, use o Prisma Studio:
+
+```bash
+npx prisma studio
+```
+
+### 5️⃣ Iniciar o servidor
+
+```bash
+npm run start
+```
+
+A API estará rodando em `http://localhost:3000`.
+
+---
+
+## 🛠️ Endpoints Disponíveis
+
+### Serviços
+- `GET /services` → Listar serviços disponíveis
+- `POST /services` → Criar um novo serviço (admin)
+
+### Agendamentos
+- `GET /appointments?userId={id}` → Listar agendamentos de um usuário
+- `POST /appointments` → Criar um novo agendamento
+
+### Disponibilidade
+- `GET /availability?serviceId={id}&date=YYYY-MM-DD` → Listar horários disponíveis
+
+
